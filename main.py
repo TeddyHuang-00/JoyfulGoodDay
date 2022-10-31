@@ -21,7 +21,7 @@ if GD_KEY not in st.session_state:
     st.session_state[GD_KEY] = 0
 
 if CRIT_KEY not in st.session_state:
-    st.session_state[CRIT_KEY] = 1e-4
+    st.session_state[CRIT_KEY] = 1e-2
 
 if INC_KEY not in st.session_state:
     st.session_state[INC_KEY] = 1
