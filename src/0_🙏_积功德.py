@@ -8,6 +8,8 @@ import streamlit as st
 
 Item = namedtuple("Item", ["name", "cost", "inflate", "inc", "crit"])
 
+st.set_page_config(initial_sidebar_state="expanded", page_title="积功德", page_icon="🙏")
+
 GD_KEY = "gd"
 CRIT_KEY = "crit"
 INC_KEY = "inc"
@@ -67,3 +69,9 @@ with SD:
             st.session_state[INC_KEY] += item.inc
             st.session_state[CRIT_KEY] *= item.crit
             st.experimental_rerun()
+
+with st.expander("佛曰"):
+    st.write("🙏 功德无量，善心无边。")
+    st.write("❔ 若不知道要干什么，就来这里念大悲咒积功德吧。")
+    st.write("🧧 功德兑换可以购买一些装备，让你的功德量更快地增长。")
+    st.write("💿 侧边栏的功德簿可以保存你的数据，切记勤备份。")

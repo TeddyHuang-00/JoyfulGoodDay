@@ -4,6 +4,8 @@ from hashlib import md5
 
 import streamlit as st
 
+st.set_page_config(initial_sidebar_state="expanded", page_title="功德簿", page_icon="📖")
+
 
 def load_save(save):
     for key, val in save.items():
