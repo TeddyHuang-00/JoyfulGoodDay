@@ -15,6 +15,8 @@ ITEM_KEY = "item"
 ITEM_LIST = [
     Item("功德倍增器", 100, 0.1, 0, 1.01),
     Item("功德加成器", 100, 0.01, 1, 1),
+    Item("半自动木鱼", 300, 0.015, 5, 1),
+    Item("机械转经轮", 1000, 0.02, 20, 1),
 ]
 
 if GD_KEY not in st.session_state:
