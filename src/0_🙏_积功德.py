@@ -15,7 +15,7 @@ with C:
         st.session_state[GD_KEY] += st.session_state[INC_KEY] * (
             1 + int(np.random.random() < st.session_state[CRIT_KEY])
         )
-    st.metric("功德量", st.session_state[GD_KEY])
+    st.metric("功德量", st.session_state[GD_KEY], st.session_state[INC_KEY])
 
 with st.expander("佛曰"):
     st.write("🙏 功德无量，善心无边。")
