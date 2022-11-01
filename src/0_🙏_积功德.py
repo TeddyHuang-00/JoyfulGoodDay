@@ -5,17 +5,7 @@ from utils import *
 
 st.set_page_config(initial_sidebar_state="expanded", page_title="积功德", page_icon="🙏")
 
-if GD_KEY not in st.session_state:
-    st.session_state[GD_KEY] = 0
-
-if CRIT_KEY not in st.session_state:
-    st.session_state[CRIT_KEY] = 1e-2
-
-if INC_KEY not in st.session_state:
-    st.session_state[INC_KEY] = 1
-
-if ITEM_KEY not in st.session_state:
-    st.session_state[ITEM_KEY] = dict()
+st.session_state.update({**ALL_KEYS_DICT, **st.session_state.to_dict()})
 
 st.title("积功德")
 

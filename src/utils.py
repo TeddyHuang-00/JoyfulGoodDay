@@ -4,7 +4,12 @@ GD_KEY = "gd"
 CRIT_KEY = "crit"
 INC_KEY = "inc"
 ITEM_KEY = "item"
-ALL_KEYS = [GD_KEY, CRIT_KEY, INC_KEY, ITEM_KEY]
+ALL_KEYS_DICT = {
+    GD_KEY: 0,
+    CRIT_KEY: 1e-2,
+    INC_KEY: 1,
+    ITEM_KEY: dict(),
+}
 
 
 Item = namedtuple("Item", ["name", "cost", "inflate", "inc", "crit"])
