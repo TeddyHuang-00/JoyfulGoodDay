@@ -17,16 +17,21 @@ with st.expander("佛曰", expanded=True):
     st.write("🧧 功德可以用来祈福兑换一些装备，让你的功德量更快地增长。")
     st.write("📖 侧边栏的功德簿可以保存你的数据，切记勤备份，佛不会记得你前世的功德。")
 
-FOOTER = st.container()
 
+FOOTER = st.container()
 sound = FOOTER.empty()
-sound.markdown(SOUND_FX, unsafe_allow_html=True)
+
+
+@st.cache(suppress_st_warning=True, ttl=0.2)
+def play_sound():
+    sound.empty()
+    sound.markdown(SOUND_FX, unsafe_allow_html=True)
+
 
 with C:
     st.metric("功德量", st.session_state[GD_KEY], st.session_state[INC_KEY])
     if st.button("大悲咒", type="primary"):
+        play_sound()
         st.session_state[GD_KEY] += st.session_state[INC_KEY] * (
             1 + int(np.random.random() < st.session_state[CRIT_KEY])
         )
-        sound.empty()
-        st.experimental_rerun()

@@ -1,7 +1,12 @@
 from collections import namedtuple
+from base64 import b64encode
 
-SOUND_FX = """
-<audio autoplay src="https://github.com/TeddyHuang-00/JoyfulGoodDay/blob/main/assets/sfx.wav?raw=true">
+SOUND_FX_SRC = (
+    "data:audio/wav;base64," + b64encode(open("assets/sfx.wav", "rb").read()).decode()
+)
+SOUND_FX = f"""
+<audio autoplay>
+    <source src="{SOUND_FX_SRC}" type="audio/wav">
 </audio>
 """
 
