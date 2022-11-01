@@ -10,6 +10,14 @@ st.title("功德祈福")
 
 st.session_state[INC_KEY] = ALL_KEYS_DICT[INC_KEY]
 st.session_state[CRIT_KEY] = ALL_KEYS_DICT[CRIT_KEY]
+for name, item in PRES_ITEM_DICT.items():
+    if item.name not in st.session_state[ITEM_KEY]:
+        st.session_state[ITEM_KEY][item.name] = 0
+        continue
+    if not st.session_state[ITEM_KEY][item.name]:
+        continue
+    st.session_state[INC_KEY] *= st.session_state[ITEM_KEY][item.name] * item.inc
+    st.session_state[CRIT_KEY] += item.crit
 for name, item in ITEM_DICT.items():
     if item.name not in st.session_state[ITEM_KEY]:
         st.session_state[ITEM_KEY][item.name] = 0
