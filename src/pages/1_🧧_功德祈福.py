@@ -20,9 +20,9 @@ for item in ITEM_LIST:
     st.metric(
         item.name,
         st.session_state[ITEM_KEY][item.name],
-        f"花费 {cost} 功德，每次积累功德加 {item.inc} ，暴击率系数 {item.crit}",
+        f"消 {cost} 功德，大悲咒效果加 {item.inc} ，运气乘 {item.crit}",
     )
-    if st.button(f"购买 {item.name}") and st.session_state[GD_KEY] >= cost:
+    if st.button(f"请佛赐我 {item.name}") and st.session_state[GD_KEY] >= cost:
         st.session_state[GD_KEY] -= cost
         st.session_state[ITEM_KEY][item.name] += 1
         st.session_state[INC_KEY] += item.inc
