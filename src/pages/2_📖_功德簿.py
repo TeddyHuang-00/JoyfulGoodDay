@@ -19,17 +19,16 @@ def check_integrity(txt: str):
         data: dict = json.loads(b64decode(txt).decode())
         hash_val = data.pop("hash")
         data = {k: v for k, v in sorted(data.items())}
-        st.write(data)
         if (
             md5((json.dumps(data) + st.secrets["E_KEY"]).encode()).hexdigest()
             == hash_val
         ):
             load_save(data)
         else:
-            return False
+            st.error("你的功德簿怎么有涂改痕迹啊，赛博佛祖看不清上面的字！")
     except Exception as e:
-        st.warning(e)
-        return False
+        # st.warning(e)
+        st.warning("你的功德簿被偷了，赛博佛祖记不得你前世的功德了！")
 
 
 st.title("功德簿")
@@ -50,8 +49,7 @@ save = b64encode((json.dumps(curr_state)).encode()).decode()
 with st.form(FORM_NAME):
     raw = st.text_area(FORM_NAME, placeholder=save)
     if st.form_submit_button(FORM_BTN_LABEL) and raw:
-        if not check_integrity(raw.strip()):
-            st.error("你的功德簿被偷了，赛博佛祖记不得你前世的功德了")
+        check_integrity(raw.strip())
 
 st.subheader("你这一世的功德簿，好好保管！")
 st.write(save)
