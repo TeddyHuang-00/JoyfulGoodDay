@@ -3,7 +3,7 @@ import streamlit as st
 
 from utils import *
 
-st.set_page_config(initial_sidebar_state="expanded", page_title="积功德", page_icon="🙏")
+st.set_page_config(page_title="积功德", page_icon="🙏")
 
 st.session_state.update({**ALL_KEYS_DICT, **st.session_state.to_dict()})
 
