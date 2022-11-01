@@ -11,11 +11,11 @@ st.title("积功德")
 
 _, C, _ = st.columns([5, 2, 5])
 with C:
-    st.metric("功德量", st.session_state[GD_KEY])
     if st.button("大悲咒", type="primary"):
         st.session_state[GD_KEY] += st.session_state[INC_KEY] * (
             1 + int(np.random.random() < st.session_state[CRIT_KEY])
         )
+    st.metric("功德量", st.session_state[GD_KEY])
 
 with st.expander("佛曰"):
     st.write("🙏 功德无量，善心无边。")
