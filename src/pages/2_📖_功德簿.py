@@ -32,9 +32,9 @@ def check_integrity(txt: str):
         return False
 
 
-st.title("Joyful Good Day")
+st.title("功德簿")
 
-FORM_NAME = "功德簿"
+FORM_NAME = "向佛诉说你的前世功德"
 FORM_BTN_LABEL = "大记忆恢复术"
 FORM_BTN_KEY = f"FormSubmitter:{FORM_NAME}-{FORM_BTN_LABEL}"
 curr_state = st.session_state.to_dict()
